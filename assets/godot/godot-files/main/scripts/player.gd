@@ -6,17 +6,25 @@ const JUMP_VELOCITY = -300.0
 const SWORD_RANGE = 34.0
 const SWORD_HEIGHT = 22.0
 const SWORD_COOLDOWN = 0.22
+const SWORD_SWING_TIME = 0.16
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var facing = 1
 var sword_cooldown = 0.0
+var sword_swing_time = 0.0
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var sword_visual = $SwordVisual
 
 func _physics_process(delta):
 	if sword_cooldown > 0:
 		sword_cooldown -= delta
+	if sword_swing_time > 0:
+		sword_swing_time -= delta
+		update_sword_visual()
+	else:
+		sword_visual.visible = false
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -59,6 +67,10 @@ func _physics_process(delta):
 
 func swing_sword():
 	sword_cooldown = SWORD_COOLDOWN
+	sword_swing_time = SWORD_SWING_TIME
+	sword_visual.visible = true
+	update_sword_visual()
+
 	for slime in get_tree().get_nodes_in_group("slimes"):
 		if not is_instance_valid(slime):
 			continue
@@ -69,3 +81,10 @@ func swing_sword():
 
 		if in_front and in_range:
 			slime.defeat()
+
+func update_sword_visual():
+	var progress = 1.0 - clamp(sword_swing_time / SWORD_SWING_TIME, 0.0, 1.0)
+	var angle = lerp(-0.95, 0.95, progress) * facing
+	sword_visual.position = Vector2(10 * facing, -12)
+	sword_visual.rotation = angle
+	sword_visual.scale.x = facing

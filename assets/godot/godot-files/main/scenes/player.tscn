@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=28 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://assets/sprites/knight.png" id="1_p3dy5"]
@@ -171,6 +171,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_bvcm0"]
 radius = 5.0
 
+[sub_resource type="Gradient" id="Gradient_sword"]
+offsets = PackedFloat32Array(0, 0.35, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 0.96, 0.66, 0.85, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sword"]
+gradient = SubResource("Gradient_sword")
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
@@ -185,3 +192,22 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_bvcm0")
+
+[node name="SwordVisual" type="Node2D" parent="."]
+visible = false
+z_index = 8
+
+[node name="SwingTrail" type="Polygon2D" parent="SwordVisual"]
+position = Vector2(16, 0)
+polygon = PackedVector2Array(-4, -20, 31, -12, 35, 0, 31, 12, -4, 20)
+texture = SubResource("GradientTexture1D_sword")
+color = Color(1, 0.88, 0.35, 0.58)
+
+[node name="Blade" type="Polygon2D" parent="SwordVisual"]
+position = Vector2(15, 0)
+polygon = PackedVector2Array(0, -3, 27, -2, 35, 0, 27, 2, 0, 3)
+color = Color(0.95, 0.97, 1, 1)
+
+[node name="Hilt" type="Polygon2D" parent="SwordVisual"]
+polygon = PackedVector2Array(-3, -8, 3, -8, 3, 8, -3, 8)
+color = Color(0.45, 0.24, 0.08, 1)
