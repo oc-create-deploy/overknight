@@ -17,18 +17,21 @@ import {
 const ACTION_JUMP = "jump";
 const ACTION_MOVE_LEFT = "move_left";
 const ACTION_MOVE_RIGHT = "move_right";
+const ACTION_ATTACK = "attack";
 
-type Control = "jump" | "left" | "right" | "play";
+type Control = "jump" | "left" | "right" | "attack" | "play";
 type GodotAction =
   | typeof ACTION_JUMP
   | typeof ACTION_MOVE_LEFT
-  | typeof ACTION_MOVE_RIGHT;
+  | typeof ACTION_MOVE_RIGHT
+  | typeof ACTION_ATTACK;
 
 const BUTTON_BOTTOM = 40;
 const BUTTON_LEFT = 30;
 const BUTTON_GAP = 20;
 const MOVE_BUTTON_SIZE = 70;
 const JUMP_BUTTON_SIZE = 80;
+const ATTACK_BUTTON_SIZE = 74;
 const PLAY_BUTTON_SIZE = 60;
 const HIT_SLOP = 18;
 
@@ -146,6 +149,10 @@ export default function Index() {
       return ACTION_MOVE_RIGHT;
     }
 
+    if (control === "attack") {
+      return ACTION_ATTACK;
+    }
+
     return null;
   };
 
@@ -212,6 +219,15 @@ export default function Index() {
           BUTTON_LEFT + MOVE_BUTTON_SIZE * 2 + BUTTON_GAP + HIT_SLOP;
         const jumpX1 = width - BUTTON_LEFT - JUMP_BUTTON_SIZE - HIT_SLOP;
         const jumpX2 = width - BUTTON_LEFT + HIT_SLOP;
+        const attackX1 =
+          width -
+          BUTTON_LEFT -
+          JUMP_BUTTON_SIZE -
+          BUTTON_GAP -
+          ATTACK_BUTTON_SIZE -
+          HIT_SLOP;
+        const attackX2 =
+          width - BUTTON_LEFT - JUMP_BUTTON_SIZE - BUTTON_GAP + HIT_SLOP;
 
         if (x >= leftX1 && x <= leftX2) {
           return "left";
@@ -223,6 +239,10 @@ export default function Index() {
 
         if (x >= jumpX1 && x <= jumpX2) {
           return "jump";
+        }
+
+        if (x >= attackX1 && x <= attackX2) {
+          return "attack";
         }
       }
 
@@ -343,6 +363,15 @@ export default function Index() {
         <View
           style={[
             styles.button,
+            styles.attackButton,
+            pressedControls.has("attack") && styles.pressedButton,
+          ]}
+        >
+          <Ionicons name="flash" size={32} color="white" />
+        </View>
+        <View
+          style={[
+            styles.button,
             styles.jumpButton,
             pressedControls.has("jump") && styles.pressedButton,
           ]}
@@ -393,6 +422,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 40,
     right: 30,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 20,
     zIndex: 20,
   },
   button: {
@@ -411,6 +443,13 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     backgroundColor: "rgba(220, 38, 38, 0.7)",
     borderColor: "rgba(255, 255, 255, 0.4)",
+  },
+  attackButton: {
+    width: 74,
+    height: 74,
+    borderRadius: 37,
+    backgroundColor: "rgba(234, 179, 8, 0.78)",
+    borderColor: "rgba(255, 255, 255, 0.45)",
   },
   pressedButton: {
     opacity: 0.65,

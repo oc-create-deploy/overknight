@@ -8,6 +8,9 @@ var direction = 1
 @onready var ray_cast_left = $RayCastLeft
 @onready var animated_sprite = $AnimatedSprite2D
 
+func _ready():
+	add_to_group("slimes")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if ray_cast_right.is_colliding():
@@ -18,3 +21,6 @@ func _process(delta):
 		animated_sprite.flip_h = false
 	
 	position.x += direction * SPEED * delta
+
+func defeat():
+	queue_free()
