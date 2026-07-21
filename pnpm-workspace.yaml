@@ -4,4 +4,4 @@ packages:
 nodeLinker: hoisted
 
 patchedDependencies:
-  '@borndotcom/react-native-godot': patches/@borndotcom__react-native-godot.patch
+  '@borndotcom/react-native-godot@1.0.1': patches/@borndotcom__react-native-godot.patch
