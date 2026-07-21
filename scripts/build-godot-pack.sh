@@ -97,6 +97,7 @@ script_export_mode=1
 script_encryption_key=""
 
 [preset.0.options]
+application/export_project_only=true
 CFG
 
 rm -f "$PACK_PATH"
