@@ -7,6 +7,7 @@ const SWORD_RANGE = 34.0
 const SWORD_HEIGHT = 22.0
 const SWORD_COOLDOWN = 0.22
 const SWORD_SWING_TIME = 0.16
+const SWORD_VISUAL_SCALE = 0.7
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -16,6 +17,7 @@ var sword_swing_time = 0.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var sword_visual = $SwordVisual
+@onready var sword_sound = $SwordSound
 
 func _physics_process(delta):
 	if sword_cooldown > 0:
@@ -69,6 +71,7 @@ func swing_sword():
 	sword_cooldown = SWORD_COOLDOWN
 	sword_swing_time = SWORD_SWING_TIME
 	sword_visual.visible = true
+	sword_sound.play()
 	update_sword_visual()
 
 	for slime in get_tree().get_nodes_in_group("slimes"):
@@ -87,4 +90,4 @@ func update_sword_visual():
 	var angle = lerp(-0.95, 0.95, progress) * facing
 	sword_visual.position = Vector2(10 * facing, -12)
 	sword_visual.rotation = angle
-	sword_visual.scale.x = facing
+	sword_visual.scale = Vector2(SWORD_VISUAL_SCALE * facing, SWORD_VISUAL_SCALE)
