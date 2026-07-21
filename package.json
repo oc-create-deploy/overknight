@@ -12,6 +12,7 @@
     "lint": "expo lint",
     "typecheck": "tsc --noEmit",
     "build:plugin": "tsc --build plugin/tsconfig.json",
+    "build:godot-pack": "bash scripts/build-godot-pack.sh",
     "download-prebuilt": "download-prebuilt",
     "postinstall": "pnpm run download-prebuilt && pnpm run build:plugin",
     "open:android": "open -a \"Android Studio\" android"

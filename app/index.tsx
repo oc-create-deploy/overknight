@@ -8,9 +8,9 @@ import * as FileSystem from "expo-file-system/legacy";
 import { useEffect, useState } from "react";
 import { Platform, StyleSheet, TouchableOpacity, View } from "react-native";
 
-const ACTION_JUMP = "ui_accept";
-const ACTION_MOVE_LEFT = "ui_left";
-const ACTION_MOVE_RIGHT = "ui_right";
+const ACTION_JUMP = "jump";
+const ACTION_MOVE_LEFT = "move_left";
+const ACTION_MOVE_RIGHT = "move_right";
 
 function initGodot() {
   runOnGodotThread(() => {

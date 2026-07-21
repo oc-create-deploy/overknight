@@ -60,6 +60,7 @@ PROFILE_NAME="$(/usr/libexec/PlistBuddy -c 'Print Name' "$PROFILE_PLIST")"
 cp "$PROFILE_PATH" "$HOME/Library/MobileDevice/Provisioning Profiles/${PROFILE_UUID}.mobileprovision"
 
 cd "$ROOT"
+pnpm run build:godot-pack
 pnpm exec expo prebuild --platform ios --clean --no-install
 
 cd "$ROOT/ios"

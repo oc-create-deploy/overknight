@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules/
+.godot-bin/
 
 # Expo
 .expo/
