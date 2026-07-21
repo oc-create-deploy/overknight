@@ -169,6 +169,7 @@ async function createCertificate() {
   execFileSync('openssl', [
     'pkcs12',
     '-export',
+    '-legacy',
     '-inkey',
     keyPath,
     '-in',
