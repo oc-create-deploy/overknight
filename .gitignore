@@ -13,3 +13,15 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Expo / React Native
+node_modules/
+.expo/
+dist/
+build/
+ios/
+android/
+.eas/
+.secrets/
+credentials.json
+dist-ios/

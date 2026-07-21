@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "OverKnight",
+    "slug": "overknight",
+    "version": "1.0.0",
+    "orientation": "landscape",
+    "icon": "./expo-assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./expo-assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#07164A"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.onuniverse.overknight",
+      "buildNumber": "2",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.onuniverse.overknight",
+      "adaptiveIcon": {
+        "foregroundImage": "./expo-assets/adaptive-icon.png",
+        "backgroundColor": "#07164A"
+      }
+    },
+    "owner": "lmonibuijhibu",
+    "extra": {
+      "eas": {
+        "projectId": "335e21e3-2484-49a7-bfa4-aee56f5bcdb5"
+      }
+    }
+  }
+}

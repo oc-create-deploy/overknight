@@ -1,0 +1,26 @@
+{
+  "cli": {
+    "version": ">= 20.2.0",
+    "appVersionSource": "local"
+  },
+  "build": {
+    "production": {
+      "ios": {
+        "distribution": "store",
+        "credentialsSource": "local",
+        "autoIncrement": true
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "ascAppId": "6793066323",
+        "appleTeamId": "689EBRXYRX",
+        "ascApiKeyPath": ".secrets/ios/AuthKey.p8",
+        "ascApiKeyIssuerId": "afd91b00-e91c-4fe6-ab61-d2b2a9d5cd51",
+        "ascApiKeyId": "XY34QYX65L"
+      }
+    }
+  }
+}
