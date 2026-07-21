@@ -4,31 +4,62 @@
     "slug": "overknight",
     "version": "1.0.0",
     "orientation": "landscape",
-    "icon": "./expo-assets/icon.png",
-    "userInterfaceStyle": "dark",
+    "icon": "./assets/images/icon.png",
+    "scheme": "overknight",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./expo-assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#07164A"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.onuniverse.overknight",
-      "buildNumber": "2",
+      "buildNumber": "3",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
-      "package": "com.onuniverse.overknight",
       "adaptiveIcon": {
-        "foregroundImage": "./expo-assets/adaptive-icon.png",
-        "backgroundColor": "#07164A"
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.onuniverse.overknight"
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ],
+      "./app.plugin.js",
+      [
+        "expo-build-properties", {
+        "android": {
+          "minSdkVersion": 29,
+          "extraMavenRepos": [
+            "../../node_modules/@borndotcom/react-native-godot/android/libs/libgodot-android/4.5.1.migeran.2"
+          ]
+        }
       }
+    ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
     },
     "owner": "lmonibuijhibu",
     "extra": {
