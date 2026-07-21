@@ -60,7 +60,7 @@ PROFILE_NAME="$(/usr/libexec/PlistBuddy -c 'Print Name' "$PROFILE_PLIST")"
 cp "$PROFILE_PATH" "$HOME/Library/MobileDevice/Provisioning Profiles/${PROFILE_UUID}.mobileprovision"
 
 cd "$ROOT"
-npx expo prebuild --platform ios --clean --non-interactive
+npx expo prebuild --platform ios --clean
 
 cd "$ROOT/ios"
 pod install
@@ -92,10 +92,12 @@ xcodebuild \
   -scheme "$APP_NAME" \
   -configuration Release \
   -sdk iphoneos \
+  -destination "generic/platform=iOS" \
   -archivePath "$ARCHIVE_PATH" \
   DEVELOPMENT_TEAM="$TEAM_ID" \
   PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID" \
   CODE_SIGN_STYLE=Manual \
+  CODE_SIGN_IDENTITY="Apple Distribution" \
   PROVISIONING_PROFILE_SPECIFIER="$PROFILE_NAME" \
   clean archive
 
