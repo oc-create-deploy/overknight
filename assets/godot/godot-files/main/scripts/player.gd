@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-const SWORD_RANGE = 34.0
+const SWORD_RANGE = 32.0
 const SWORD_HEIGHT = 22.0
 const SWORD_COOLDOWN = 0.22
 const SWORD_SWING_TIME = 0.16
@@ -88,6 +88,6 @@ func swing_sword():
 func update_sword_visual():
 	var progress = 1.0 - clamp(sword_swing_time / SWORD_SWING_TIME, 0.0, 1.0)
 	var angle = lerp(-0.95, 0.95, progress) * facing
-	sword_visual.position = Vector2(10 * facing, -12)
+	sword_visual.position = Vector2(8 * facing, -12)
 	sword_visual.rotation = angle
 	sword_visual.scale = Vector2(SWORD_VISUAL_SCALE * facing, SWORD_VISUAL_SCALE)

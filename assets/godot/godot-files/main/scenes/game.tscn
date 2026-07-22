@@ -525,6 +525,42 @@ position = Vector2(795, -25)
 [node name="Coin9" parent="Coins" instance=ExtResource("4_28cek")]
 position = Vector2(584, -108)
 
+[node name="Coin10" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(900, -48)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(960, -65)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1020, -88)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1084, -64)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1160, -38)
+
+[node name="Coin15" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1232, -77)
+
+[node name="Coin16" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1304, -114)
+
+[node name="Coin17" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1380, -84)
+
+[node name="Coin18" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1452, -52)
+
+[node name="Coin19" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1530, -93)
+
+[node name="Coin20" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1604, -124)
+
+[node name="Coin21" parent="Coins" instance=ExtResource("4_28cek")]
+position = Vector2(1680, -90)
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("3_cmfc3")]
@@ -539,8 +575,56 @@ libraries = {
 }
 autoplay = "move"
 
+[node name="Platform3" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(884, -18)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(944, -35)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1004, -58)
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1068, -34)
+
+[node name="Platform7" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1144, -8)
+
+[node name="Platform8" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1216, -47)
+
+[node name="Platform9" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1288, -84)
+
+[node name="Platform10" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1364, -54)
+
+[node name="Platform11" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1436, -22)
+
+[node name="Platform12" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1514, -63)
+
+[node name="Platform13" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1588, -94)
+
+[node name="Platform14" parent="Platforms" instance=ExtResource("3_cmfc3")]
+position = Vector2(1664, -60)
+
 [node name="Slime" parent="." instance=ExtResource("6_l0s6b")]
 position = Vector2(529, 81)
+
+[node name="Slime2" parent="." instance=ExtResource("6_l0s6b")]
+position = Vector2(916, -20)
+
+[node name="Slime3" parent="." instance=ExtResource("6_l0s6b")]
+position = Vector2(1178, -2)
+
+[node name="Slime4" parent="." instance=ExtResource("6_l0s6b")]
+position = Vector2(1330, -78)
+
+[node name="Slime5" parent="." instance=ExtResource("6_l0s6b")]
+position = Vector2(1550, -88)
 
 [node name="Labels" type="Node" parent="."]
 
